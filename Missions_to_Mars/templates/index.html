@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Vacation To Mars</title>
+</head>
+<body>
+
+    <div class="card bg-dark">
+        <img src= {{m.featured_image_url}} class='img-fluid' alt='Responsive image'>
+        <div class="card-img-overlay">
+            <h1 style='color:white'>Vacation To Mars!?</h1>
+            <p style='color:white'>Updated with all the latest data, so you can know what to expect when you get there!</p>
+            <p><a class="btn btn-primary btn-lg" href="http://127.0.0.1:5000/scrape" role="button">Click for Latest Facts</a></p>
+        </div>
+    </div>
+
+    <div class='container'>
+        <div class="row">
+            <!-- Cards to hold the news and weather -->
+            <div class="card-group">
+                <div class="card border-0">
+                  <div class="card-body">
+                    <h2 class="card-title text-primary">News</h2>
+                    <div style="height:190px">
+                      <p class="card-text"><b>{{ m.news_title }}</b></p>
+                      <p class="card-text">{{ m.news_p }}</p>
+                    </div>
+                    
+                    
+                    <img style= "width:100%" src={{m.hem_dicts[0].img_url}}>
+                    <p class = "card-text">{{m.hem_dicts[0].title}}</p>
+                    
+                    <img style="width:100%" src={{m.hem_dicts[1].img_url}}>
+                    <p class="card-text">{{m.hem_dicts[1].title}}</p>
+                  </div>
+                </div>
+                <div class="card border-0">
+                  <div class="card-body">
+                    <h2 class="card-title text-primary">Weather</h2>
+                    <div style="height:190px">
+                      <p class="card-text">{{ m.mars_weather}}</p>
+                    </div>
+                    
+
+                    <img style="width:100%" src={{m.hem_dicts[2].img_url}}>
+                    <p class="card-text">{{m.hem_dicts[2].title}}</p>
+                    <img style="width:100%" src={{m.hem_dicts[3].img_url}}>
+                    <p class="card-text">{{m.hem_dicts[3].title}}</p>
+                  </div>
+                </div>
+                <div class="card border-0">
+                  <div class="card-body">
+                    <h2 class="card-title text-primary">Mars Facts</h2>
+                    <table>
+                      <tbody>{{m.mars_facts | safe}}</tbody>
+                    </table>
+                  </div>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+
+
+    </div>
+    
+    
+
+</body>
